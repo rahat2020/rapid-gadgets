@@ -219,7 +219,7 @@ const AboutUs = () => {
                     operations across industries. With a strong commitment to
                     quality and performance, we offer cutting-edge products that
                     cater to the needs of retail, logistics, warehousing, and
-                    more. Whether you're enhancing your POS setup or automating
+                    more. Whether you are enhancing your POS setup or automating
                     your inventory process, Rapid ensures efficiency with every
                     device. Join us on a journey of smarter business management
                     and technological advancement as you explore our collection

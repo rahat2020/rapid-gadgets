@@ -1,75 +1,46 @@
-import CommonTitle from "@/helpers/ui/CommonTitle";
-import type { FC } from "react";
+import type React from "react";
+import { Truck, RefreshCw, DollarSign } from "react-feather";
 
-interface FeatureItemProps {
-  number: string;
-  title: string;
-  description: string[];
-  isLast?: boolean;
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  text: string;
+  bgColor?: string;
+  textColor?: string;
 }
 
-const FeatureItem: FC<FeatureItemProps> = ({
-  number,
-  title,
-  description,
-  isLast = false,
-}) => {
+const FeatureCard = ({
+  icon,
+  text,
+  bgColor = "bg-white",
+  textColor = "text-black",
+}: FeatureCardProps) => {
   return (
-    <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left px-4 md:px-6 relative">
-      <div className="text-teal-700 font-bold text-5xl md:text-6xl mb-2">
-        {number}
-      </div>
-      <h3 className="font-semibold text-gray-800 uppercase mb-1">{title}</h3>
-      {description.map((line, index) => (
-        <p key={index} className="text-gray-600 text-sm uppercase">
-          {line}
-        </p>
-      ))}
-
-      {!isLast && (
-        <div className="hidden md:block absolute right-0 top-1/2 h-16 w-px bg-gray-200 -translate-y-1/2"></div>
-      )}
+    <div className={`flex items-center p-6 rounded-lg ${bgColor}`}>
+      <div className={`mr-4 ${textColor}`}>{icon}</div>
+      <div className={`text-[1rem] font-medium ${textColor}`}>{text}</div>
     </div>
   );
 };
 
-const Processing: FC = () => {
-  const features = [
-    {
-      number: "01.",
-      title: "FREE SHIPPING",
-      description: ["FREE AND FAST SHIPPING", "ACROSS SAUDI ARABIA"],
-    },
-    {
-      number: "02.",
-      title: "PAYMENT METHOD",
-      description: ["CASH ON DELIVERY", "AVAILABLE, CREDIT CARD"],
-    },
-    {
-      number: "03.",
-      title: "EXCHANGE & RETURNS",
-      description: ["IF IT DOESN'T FIT YOU WE CAN", "EXCHANGE OR REFUND."],
-    },
-  ];
-
+export default function FeatureBanner() {
   return (
-    <section className="py-12 md:h-[60vh] h-[100vh] border-gray-200">
-      <div className="container mx-auto">
-        <CommonTitle title="WE MAKE IT EASY!" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
-          {features.map((feature, index) => (
-            <FeatureItem
-              key={index}
-              number={feature.number}
-              title={feature.title}
-              description={feature.description}
-              isLast={index === features.length - 1}
-            />
-          ))}
-        </div>
+    <div className="w-full bg-gray-50 py-12 px-4">
+      <div className="mx-auto container grid grid-cols-1 md:grid-cols-3 gap-4">
+        <FeatureCard
+          icon={<Truck className="h-5 w-5 text-blue-500" />}
+          text="Free Delivery on First Orders"
+        />
+        <FeatureCard
+          icon={<RefreshCw className="h-5 w-5" />}
+          text="Free Returns"
+          bgColor="bg-blue-500"
+          textColor="text-white"
+        />
+        <FeatureCard
+          icon={<DollarSign className="h-5 w-5 text-blue-500" />}
+          text="Cash on Delivery"
+        />
       </div>
-    </section>
+    </div>
   );
-};
-
-export default Processing;
+}

@@ -32,15 +32,18 @@ export default function NewsletterSignup() {
 
   return (
     <div className="py-12">
-      <div className="w-full max-w-4xl mx-auto bg-brand text-white p-8 py-12 text-center ">
-        <h2 className="text-3xl font-bold mb-4 tracking-wide">
-          GET OUR LATEST STYLE UPDATES
+      <div className="w-full mx-auto bg-brand text-white p-8 py-12 text-center ">
+        <h2 className="text-3xl font-bold mb-4 tracking-wide uppercase">
+          GET OUR LATEST gadgets UPDATES
         </h2>
 
         <p className="mb-6 text-base">
           Be the first to know about new arrivals, sales & promos by submitting
           your email! You can opt out at any time.{" "}
-          <Link href="#" className="underline hover:text-gray-300">
+          <Link
+            href="/privacy-policy"
+            className="underline hover:text-gray-300"
+          >
             Privacy Policy
           </Link>
         </p>

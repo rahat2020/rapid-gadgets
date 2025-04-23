@@ -1,25 +1,14 @@
-import { useMemo } from "react";
 import Image from "next/image";
 import { alterCardImage } from "@/utils/appHelpers";
-import { useAppSelector } from "@/redux/hooks/hooks";
+import { cartItemsData } from "@/data/productsData";
 
 const OrderSummary = () => {
-  // redux states
-  const { checkoutCartItem } = useAppSelector((state) => state.cart);
-
-  const totalAmount = useMemo(() => {
-    return checkoutCartItem.reduce(
-      (sum, item) => sum + item?.price * item?.quantity,
-      0
-    );
-  }, [checkoutCartItem]);
-
   return (
     <div className="bg-gray-50 p-6 rounded-lg">
       <h2 className="text-lg font-semibold mb-4">Order summary</h2>
 
       {/* Order Items */}
-      {checkoutCartItem?.map((item, index) => (
+      {cartItemsData?.map((item, index) => (
         <div key={index} className="flex gap-4 mb-4 pb-4 border-b">
           <div className="relative">
             <Image
@@ -37,13 +26,16 @@ const OrderSummary = () => {
             <h3 className="font-medium">{item.name}</h3>
             <div className="flex items-center gap-2 text-sm">
               <span className="text-gray-500 line-through">
-                AED {Math.round(item?.originalPrice || item?.price)}
+                AED {Math.round(item?.price)}
               </span>
               <span className="font-semibold">
                 AED {Math.round(item?.price)}
               </span>
             </div>
-            <p className="text-sm text-gray-600 mt-1">{item?.description}</p>
+            <p className="text-sm text-gray-600 mt-1">
+              The Easypos EPS204 is a versatile 2D wireless barcode scanner
+              designed for efficient and accurate scanning. It features a
+            </p>
           </div>
         </div>
       ))}
@@ -66,11 +58,11 @@ const OrderSummary = () => {
       <div className="space-y-2">
         <div className="flex justify-between">
           <span className="text-gray-600">Subtotal</span>
-          <span>AED {Math.round(totalAmount)}</span>
+          <span>AED {Math.round(100)}</span>
         </div>
         <div className="flex justify-between text-lg font-semibold">
           <span>Total</span>
-          <span>AED {Math.round(totalAmount)}</span>
+          <span>AED {Math.round(100)}</span>
         </div>
       </div>
     </div>

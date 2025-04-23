@@ -107,7 +107,7 @@ const LoginComponent = () => {
       >
         <div className="p-8">
           <h2 className="text-2xl font-bold text-center text-border-dark mb-6 capitalize">
-            Sign in to your <span className="text-brand">account</span>
+            Login to your <span className="text-brand">account</span>
           </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
@@ -184,7 +184,7 @@ const LoginComponent = () => {
               disabled={disableBtn}
               className={`${
                 disableBtn
-                  ? "cursor-not-allowed bg-orange-300"
+                  ? "cursor-not-allowed bg-[#28ade2c0]"
                   : "cursor-pointer bg-brand"
               } w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white transition-all duration-200`}
             >

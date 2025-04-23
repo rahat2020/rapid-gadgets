@@ -1,39 +1,21 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import OrderSummary from "./OrderSummary";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { CreditCard, DollarSign } from "react-feather";
-import { size } from "lodash";
-import toastAlert from "@/utils/toastConfig";
 import CommonHeader from "../common/CommonHeader";
-import { requestForCheckout } from "@/helpers/restApiRequest";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks/hooks";
-import { setDefaultCart } from "@/redux/cart/cartSlice";
-
-type CartItems = {
-  price: number;
-  quantity: number;
-};
+import { useAppSelector } from "@/redux/hooks/hooks";
 
 const CheckoutComponent = () => {
   const router = useRouter();
-  const dispatch = useAppDispatch();
 
   // redux states
   const { user } = useAppSelector((state) => state.user);
   const { email, fullname } = user || {};
-  const { checkoutCartItem } = useAppSelector((state) => state.cart);
-
-  const totalAmount = useMemo(() => {
-    return checkoutCartItem.reduce(
-      (sum: number, item: CartItems) => sum + item?.price * item?.quantity,
-      0
-    );
-  }, [checkoutCartItem]);
 
   // states
   const [paymentMethod, setPaymentMethod] = useState("COD");
@@ -41,7 +23,7 @@ const CheckoutComponent = () => {
     payment_method: "cash_on_delivery",
     delivery_method: "home_delivery",
     delivery_address: "Mirpur Dhaka",
-    total_amount: totalAmount,
+    total_amount: 100,
     firstName: fullname || "",
     postalCode: "",
     lastName: "",
@@ -62,23 +44,24 @@ const CheckoutComponent = () => {
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    if (size(user) > 0) {
-      try {
-        const response = await requestForCheckout(formData);
-        if (response?.data?.message === "Order placed successfully") {
-          toastAlert("success", "Your Order placed successfully", "top-right");
-          router.push("/tracking");
-          dispatch(setDefaultCart());
-        }
-      } catch (error) {
-        const { response } = error as {
-          response: { data: { message: string } };
-        };
-        toastAlert("error", response?.data?.message, "top-right");
-      }
-    } else {
-      router.push("/login");
-    }
+    router.push("/tracking");
+    // if (size(user) > 0) {
+    //   try {
+    //     const response = await requestForCheckout(formData);
+    //     if (response?.data?.message === "Order placed successfully") {
+    //       toastAlert("success", "Your Order placed successfully", "top-right");
+    //       router.push("/tracking");
+    //       dispatch(setDefaultCart());
+    //     }
+    //   } catch (error) {
+    //     const { response } = error as {
+    //       response: { data: { message: string } };
+    //     };
+    //     toastAlert("error", response?.data?.message, "top-right");
+    //   }
+    // } else {
+    //   router.push("/login");
+    // }
   };
 
   // ANIMATE ON SCROLL
@@ -127,9 +110,12 @@ const CheckoutComponent = () => {
               />
               <p className="text-sm text-gray-600 mt-2">
                 You are currently checking out as a guest.{" "}
-                <a href="#" className="text-red-600 hover:text-red-700">
-                  Create an account with Excellency - Food & Restaurant
-                </a>
+                <Link
+                  href="/register"
+                  className="text-brand hover:text-brand-700"
+                >
+                  Create an account with Rapid Gadgets
+                </Link>
               </p>
             </div>
 
@@ -331,13 +317,19 @@ const CheckoutComponent = () => {
             <div className="space-y-4">
               <p className="text-sm text-gray-600">
                 By proceeding with your purchase you agree to our{" "}
-                <a href="#" className="text-red-600 hover:text-red-700">
+                <Link
+                  href="privacy-policy"
+                  className="text-brand hover:text-blue-700"
+                >
                   Terms and Conditions
-                </a>{" "}
+                </Link>{" "}
                 and{" "}
-                <a href="#" className="text-red-600 hover:text-red-700">
+                <Link
+                  href="/privacy-policy"
+                  className="text-brand hover:text-blue-700"
+                >
                   Privacy Policy
-                </a>
+                </Link>
               </p>
 
               <div className="flex flex-col md:flex-row justify-between gap-4">

@@ -31,6 +31,8 @@ const CartItem = ({
           <Image
             src={image || "/placeholder.svg"}
             alt={name}
+            width={96}
+            height={96}
             className="w-full h-full object-cover rounded-full"
           />
         </div>

@@ -114,7 +114,7 @@ const CommonHeader = ({
               href="/"
               className="hover:text-brand text-white text-sm md:text-lg"
             >
-              Suhaksa
+              Rapid
             </Link>
             <span className="mx-2">{">"}</span>{" "}
             <span className="text-brand font-semibold">{componentTitle}</span>

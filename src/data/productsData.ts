@@ -1,0 +1,334 @@
+export const productsData = [
+  {
+    id: 1,
+    title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    subtitle: "INTERMEC",
+    price: 2500,
+    status: "newest",
+    currency: "AED",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    image: "/assets/barcode-scanner.jpg",
+  },
+  {
+    id: 2,
+    title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    subtitle: "INTERMEC",
+    price: 1500,
+    status: "popular",
+    currency: "AED",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    image: "/assets/ID-Card-Printer.jpg",
+  },
+  {
+    id: 3,
+    title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    price: 1500,
+    subtitle: "INTERMEC",
+    status: "popular",
+    currency: "AED",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    image: "/assets/Label-Printers.jpg",
+  },
+  {
+    id: 4,
+    title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    price: 2200,
+    subtitle: "INTERMEC",
+    currency: "AED",
+    status: "newest",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    image: "/assets/Mobile-Printer.jpg",
+  },
+  {
+    id: 5,
+    title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    price: 4500,
+    subtitle: "INTERMEC",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    currency: "AED",
+    image: "/assets/PDT.jpg",
+  },
+  {
+    id: 6,
+    title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    price: 2150,
+    currency: "AED",
+    subtitle: "INTERMEC",
+    status: "popular",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    image: "/assets/POS-Printer.jpg",
+  },
+  {
+    id: 7,
+    title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    price: 2250,
+    subtitle: "INTERMEC",
+    currency: "AED",
+    status: "popular",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    image: "/assets/POS-Sysytems.jpg",
+  },
+  {
+    id: 8,
+    title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    price: 200,
+    currency: "AED",
+    subtitle: "INTERMEC",
+    status: "popular",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    image: "/assets/Pozone-Pricechecker.jpg",
+  },
+  {
+    id: 9,
+    title: 'Pos Printers 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    price: 200,
+    currency: "AED",
+    subtitle: "INTERMEC",
+    status: "popular",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    image: "/assets/POS-Sysytems.jpg",
+  },
+  {
+    id: 10,
+    title: 'IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
+    price: 200,
+    currency: "AED",
+    subtitle: "INTERMEC",
+    status: "newest",
+    features: [
+      "AMD Ryzen 5 5500U",
+      '14" FHD Touchscreen',
+      "8GB RAM",
+      "512GB SSD",
+      "Windows 11 Home",
+    ],
+    image: "/assets/ID-Card-Printer.jpg",
+  },
+];
+
+export const showOptions = [
+  {
+    id: 1,
+    label: "25 per page",
+    value: 25,
+  },
+  {
+    id: 2,
+    label: "50 per page",
+    value: 50,
+  },
+  {
+    id: 3,
+    label: "100 per page",
+    value: 100,
+  },
+];
+
+export const sortDropdownData = [
+  {
+    id: 1,
+    label: "Newest Item",
+    value: "newest",
+  },
+  {
+    id: 2,
+    label: "Most Popular",
+    value: "popular",
+  },
+  // {
+  //   id: 3,
+  //   label: "Price Low to High",
+  //   value: "low-to-high",
+  // },
+  // {
+  //   id: 4,
+  //   label: "Price High to Low",
+  //   value: "high-to-low",
+  // }
+];
+
+export const filterCateogryItems = [
+  { serial: 1, id: "laptop", name: "Laptop", count: 2, checked: false },
+  { serial: 2, id: "printer", name: "Printer", count: 4, checked: false },
+  {
+    serial: 3,
+    id: "scanner",
+    name: "Scanner",
+    count: 2,
+    checked: false,
+    subCategories: [
+      { serial: 4.1, id: "cctv", name: "CCTV", count: 2, checked: false },
+      { serial: 4.2, id: "webcam", name: "Webcam", count: 1, checked: false },
+      { serial: 4.3, id: "dome", name: "Dome", count: 1, checked: false },
+    ],
+  },
+  {
+    serial: 4,
+    id: "camera",
+    name: "Camera",
+    count: 3,
+    checked: false,
+    subCategories: [
+      { serial: 4.1, id: "cctv", name: "CCTV", count: 2, checked: false },
+      { serial: 4.2, id: "webcam", name: "Webcam", count: 1, checked: false },
+      { serial: 4.3, id: "dome", name: "Dome", count: 1, checked: false },
+    ],
+  },
+  {
+    serial: 5,
+    id: "pendrive",
+    name: "Pendrive",
+    count: 6,
+    checked: true,
+    subCategories: [
+      { serial: 4.1, id: "cctv", name: "CCTV", count: 2, checked: false },
+      { serial: 4.2, id: "webcam", name: "Webcam", count: 1, checked: false },
+      { serial: 4.3, id: "dome", name: "Dome", count: 1, checked: false },
+    ],
+  },
+  { serial: 6, id: "sandisk", name: "Sandisk", count: 3, checked: true },
+  { serial: 7, id: "hp", name: "HP", count: 5, checked: false },
+  { serial: 8, id: "lenovo", name: "Lenovo", count: 7, checked: false },
+  { serial: 9, id: "skullcandy", name: "Skullcandy", count: 8, checked: false },
+  { serial: 10, id: "microsoft", name: "Microsoft", count: 9, checked: true },
+  { serial: 11, id: "cctv", name: "CCTV", count: 10, checked: false },
+  { serial: 12, id: "monitor", name: "Monitor", count: 3, checked: false },
+  { serial: 13, id: "mouse", name: "Mouse", count: 2, checked: false },
+];
+
+export const filterBrandItems = [
+  { serial: 1, id: "hp", name: "HP", count: 2, checked: false },
+  { serial: 2, id: "lenovo", name: "Lenovo", count: 4, checked: false },
+  { serial: 3, id: "skullcandy", name: "Skullcandy", count: 2, checked: false },
+  { serial: 4, id: "microsoft", name: "Microsoft", count: 3, checked: false },
+  { serial: 5, id: "cctv", name: "CCTV", count: 6, checked: true },
+  { serial: 6, id: "monitor", name: "Monitor", count: 3, checked: true },
+  { serial: 7, id: "mouse", name: "Mouse", count: 2, checked: false },
+];
+
+export const filterPriceItems = [
+  { serial: 1, id: "0-100", name: "0 - 100 AED", count: 2, checked: false },
+  { serial: 2, id: "100-200", name: "100 - 200 AED", count: 4, checked: false },
+  { serial: 3, id: "200-300", name: "200 - 300 AED", count: 2, checked: false },
+  { serial: 4, id: "300-400", name: "300 - 400 AED", count: 3, checked: false },
+  { serial: 5, id: "400-500", name: "400 - 500 AED", count: 6, checked: true },
+  { serial: 6, id: "500-600", name: "500 - 600 AED", count: 3, checked: true },
+];
+
+export const cartItemsData = [
+  {
+    id: 1,
+    name: "Barcode Scanner",
+    platform: "Pos",
+    image: "/assets/barcode-scanner.jpg",
+    price: 44.0,
+    quantity: 2,
+  },
+  {
+    id: 2,
+    name: "Label Printers",
+    platform: "priniters",
+    image: "/assets/Label-Printers.jpg",
+    price: 249.99,
+    quantity: 1,
+  },
+  {
+    id: 3,
+    name: "Pos printers",
+    platform: "printers",
+    image: "/assets/POS-Printer.jpg",
+    price: 119.99,
+    quantity: 1,
+  },
+];
+
+export const orderInfo = [
+  {
+    id: "123456",
+    status: "Completed",
+    delivery_address: "123 Sheikh Zayed Road, Dubai, UAE",
+    total_amount: 299.99,
+    order_items: [
+      {
+        id: "item_1",
+        name: "Wireless Headphones",
+        quantity: 1,
+        price: 149.99,
+      },
+      {
+        id: "item_2",
+        name: "USB-C Charger",
+        quantity: 2,
+        price: 75,
+      },
+    ],
+  },
+  {
+    id: "789012",
+    status: "Processing",
+    delivery_address: "45 Al Barsha Street, Dubai, UAE",
+    total_amount: 120.5,
+    order_items: [
+      {
+        id: "item_3",
+        name: "Smart LED Bulb",
+        quantity: 3,
+        price: 40.5,
+      },
+    ],
+  },
+];

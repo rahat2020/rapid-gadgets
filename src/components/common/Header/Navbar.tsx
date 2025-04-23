@@ -1,9 +1,16 @@
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { size } from "lodash";
-import { ChevronLeft, Menu, Search, X } from "react-feather";
+import {
+  ChevronLeft,
+  Menu,
+  Search,
+  ShoppingCart,
+  User,
+  X,
+} from "react-feather";
 import { useDebounce } from "@/hooks/useDebounce";
 import { addSearchData, addSelectedSearchData } from "@/redux/app/appSlice";
 import { useGetSearchFoodQuery } from "@/redux/apiSlice/apiSlice";
@@ -17,8 +24,8 @@ const Navbar = ({ from = "" }) => {
   const pathname = usePathname();
   const dropdownRef = useRef(null);
   const inputRef = useRef(null);
+  const router = useRouter();
   const dispatch = useAppDispatch();
-  const isHomeRoute = pathname === "/";
   const isMobileScreen = useMediaQuery("(max-width: 768px)");
 
   // states
@@ -58,6 +65,10 @@ const Navbar = ({ from = "" }) => {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleAuthRedirect = () => {
+    router.push("/login");
   };
 
   // set search data into the redux state
@@ -133,69 +144,65 @@ const Navbar = ({ from = "" }) => {
 
         {/* cta button for mobile */}
         <div className="flex gap-3 justify-between items-center md:hidden">
-          {isHomeRoute && (
-            <div className="relative flex items-center">
-              <form>
-                <div
-                  className={`flex items-center transition-all duration-300 ease-in-out rounded-md ${
-                    isExpanded ? "w-[300px] bg-white" : "w-10"
+          <div className="relative flex items-center">
+            <form>
+              <div
+                className={`flex items-center transition-all duration-300 ease-in-out rounded-md ${
+                  isExpanded ? "w-[300px] bg-white" : "w-10"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={
+                    isExpanded ? handleSearchCollapse : handleSearchExpand
+                  }
+                  className={`p-2 hover:text-gray-600 ${
+                    isExpanded ? "text-gray-400" : "text-gray-700"
                   }`}
                 >
-                  <button
-                    type="button"
-                    onClick={
-                      isExpanded ? handleSearchCollapse : handleSearchExpand
-                    }
-                    className={`p-2 hover:text-gray-600 ${
-                      isExpanded ? "text-gray-400" : "text-gray-700"
-                    }`}
-                  >
-                    {isExpanded ? (
-                      <ChevronLeft className="h-5 w-5 text-gray-500" />
-                    ) : (
-                      <Search className="h-6 w-6 text-white" />
-                    )}
-                  </button>
-                  <div className="relative w-[250px]" ref={dropdownRef}>
-                    <input
-                      type="text"
-                      ref={inputRef}
-                      value={searchQuery}
-                      onChange={(e) => handleSearchChange(e.target.value)}
-                      placeholder="Search..."
-                      className={`w-full bg-transparent outline-none text-gray-700 ${
-                        isExpanded ? "opacity-100 px-2" : "opacity-0 w-0 p-0"
-                      } transition-all duration-300 ease-in-out`}
-                    />
-                    {/* Dropdown Box */}
-                    {isExpanded && (
-                      <ul className="absolute left-0 top-full mt-1 w-full bg-white border border-gray-300 shadow-lg rounded max-h-60 overflow-y-auto">
-                        {isLoading ? (
-                          <div className="flex justify-center items-center py-10">
-                            <p className="text-brand font-medium">
-                              Loading....
-                            </p>
-                          </div>
-                        ) : (
-                          data?.items?.map((food) => (
-                            <li
-                              key={food?.id}
-                              role="button"
-                              tabIndex={0}
-                              onClick={() => handleSearchFoodItem(food)}
-                              className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                            >
-                              {HighLightMatchText(food?.name, searchQuery)}
-                            </li>
-                          ))
-                        )}
-                      </ul>
-                    )}
-                  </div>
+                  {isExpanded ? (
+                    <ChevronLeft className="h-5 w-5 text-gray-500" />
+                  ) : (
+                    <Search className="h-6 w-6 text-white" />
+                  )}
+                </button>
+                <div className="relative w-[250px]" ref={dropdownRef}>
+                  <input
+                    type="text"
+                    ref={inputRef}
+                    value={searchQuery}
+                    onChange={(e) => handleSearchChange(e.target.value)}
+                    placeholder="Search..."
+                    className={`w-full bg-transparent outline-none text-gray-700 ${
+                      isExpanded ? "opacity-100 px-2" : "opacity-0 w-0 p-0"
+                    } transition-all duration-300 ease-in-out`}
+                  />
+                  {/* Dropdown Box */}
+                  {isExpanded && (
+                    <ul className="absolute left-0 top-full mt-1 w-full bg-white border border-gray-300 shadow-lg rounded max-h-60 overflow-y-auto">
+                      {isLoading ? (
+                        <div className="flex justify-center items-center py-10">
+                          <p className="text-brand font-medium">Loading....</p>
+                        </div>
+                      ) : (
+                        data?.items?.map((food) => (
+                          <li
+                            key={food?.id}
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => handleSearchFoodItem(food)}
+                            className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                          >
+                            {HighLightMatchText(food?.name, searchQuery)}
+                          </li>
+                        ))
+                      )}
+                    </ul>
+                  )}
                 </div>
-              </form>
-            </div>
-          )}
+              </div>
+            </form>
+          </div>
           <button
             onClick={toggleSidebar}
             className={`md:hidden transition-colors ${
@@ -208,80 +215,90 @@ const Navbar = ({ from = "" }) => {
 
         {/* cta button for web */}
         <div className="hidden md:flex items-center space-x-2 md:space-x-4">
-          {isHomeRoute && (
-            <div className="relative flex items-center">
-              <form className="relative flex items-center">
-                <div
-                  className={`flex items-center transition-all duration-300 ease-in-out rounded-md ${
-                    isExpanded ? "w-[300px] bg-white" : "w-10"
+          <div className="relative flex items-center">
+            <form className="relative flex items-center">
+              <div
+                className={`flex items-center transition-all duration-300 ease-in-out rounded-md ${
+                  isExpanded ? "w-[300px] bg-white" : "w-10"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={
+                    isExpanded ? handleSearchCollapse : handleSearchExpand
+                  }
+                  className={`p-2 cursor-pointer hover:text-gray-600 ${
+                    isExpanded ? "text-gray-400" : "text-gray-700"
                   }`}
                 >
-                  <button
-                    type="button"
-                    onClick={
-                      isExpanded ? handleSearchCollapse : handleSearchExpand
-                    }
-                    className={`p-2 cursor-pointer hover:text-gray-600 ${
-                      isExpanded ? "text-gray-400" : "text-gray-700"
-                    }`}
-                  >
-                    {isExpanded ? (
-                      <ChevronLeft className="h-5 w-5 text-gray-500" />
-                    ) : (
-                      <Search className="h-6 w-6 text-white" />
-                    )}
-                  </button>
-                  <div className="relative w-[250px]" ref={dropdownRef}>
-                    <input
-                      type="text"
-                      ref={inputRef}
-                      value={searchQuery}
-                      onChange={(e) => handleSearchChange(e.target.value)}
-                      placeholder="Search..."
-                      className={`w-full bg-transparent outline-none text-gray-700 ${
-                        isExpanded ? "opacity-100 px-2" : "opacity-0 w-0 p-0"
-                      } transition-all duration-300 ease-in-out`}
-                    />
-                    {/* Dropdown Box */}
-                    {isExpanded && (
-                      <ul className="absolute left-0 top-full mt-1 w-full bg-white border border-gray-300 shadow-lg rounded max-h-60 overflow-y-auto">
-                        {isLoading ? (
-                          <div className="flex justify-center items-center py-10">
-                            <p className="text-brand font-medium">
-                              Loading....
-                            </p>
-                          </div>
-                        ) : (
-                          data?.items?.map((food) => (
-                            <li
-                              key={food?.id}
-                              role="button"
-                              tabIndex={0}
-                              onClick={() => handleSearchFoodItem(food)}
-                              className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                            >
-                              {HighLightMatchText(food?.name, searchQuery)}
-                            </li>
-                          ))
-                        )}
-                      </ul>
-                    )}
-                  </div>
+                  {isExpanded ? (
+                    <ChevronLeft className="h-5 w-5 text-gray-500" />
+                  ) : (
+                    <Search className="h-6 w-6 text-white" />
+                  )}
+                </button>
+                <div className="relative w-[250px]" ref={dropdownRef}>
+                  <input
+                    type="text"
+                    ref={inputRef}
+                    value={searchQuery}
+                    onChange={(e) => handleSearchChange(e.target.value)}
+                    placeholder="Search..."
+                    className={`w-full bg-transparent outline-none text-gray-700 ${
+                      isExpanded ? "opacity-100 px-2" : "opacity-0 w-0 p-0"
+                    } transition-all duration-300 ease-in-out`}
+                  />
+                  {/* Dropdown Box */}
+                  {isExpanded && (
+                    <ul className="absolute left-0 top-full mt-1 w-full bg-white border border-gray-300 shadow-lg rounded max-h-60 overflow-y-auto">
+                      {isLoading ? (
+                        <div className="flex justify-center items-center py-10">
+                          <p className="text-brand font-medium">Loading....</p>
+                        </div>
+                      ) : (
+                        data?.items?.map((food) => (
+                          <li
+                            key={food?.id}
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => handleSearchFoodItem(food)}
+                            className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                          >
+                            {HighLightMatchText(food?.name, searchQuery)}
+                          </li>
+                        ))
+                      )}
+                    </ul>
+                  )}
                 </div>
-                {isExpanded && (
-                  <button
-                    type="button"
-                    onClick={handleSearchCollapse}
-                    className="absolute cursor-pointer right-0 p-2 text-gray-400 hover:text-gray-600"
-                  >
-                    <X className="h-5 w-5" />
-                  </button>
-                )}
-              </form>
-            </div>
-          )}
+              </div>
+              {isExpanded && (
+                <button
+                  type="button"
+                  onClick={handleSearchCollapse}
+                  className="absolute cursor-pointer right-0 p-2 text-gray-400 hover:text-gray-600"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              )}
+            </form>
+          </div>
+          <div
+            className="relative flex flex-col items-center"
+            role="button"
+            tabIndex={0}
+          >
+            <span className="absolute flex items-center justify-center -mt-5 ms-6 w-5 h-5 text-12 bg-white text-brand rounded-full ">
+              0
+            </span>
+            <ShoppingCart className="w-5 h-5 text-white cursor-pointer" />
+          </div>
+          <User
+            onClick={() => handleAuthRedirect()}
+            className="w-5 h-5 text-white cursor-pointer"
+          />
 
-          <AppButton title="ORDER NOW" />
+          <AppButton title="VISIT SHOP" link="/products" />
         </div>
 
         {/* nav links for mobile */}

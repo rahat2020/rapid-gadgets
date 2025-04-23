@@ -6,26 +6,21 @@ export const navData = [
   },
   {
     id: 2,
+    label: "Products",
+    link: "/products",
+  },
+  {
+    id: 3,
     label: "About us",
     link: "/about-us",
   },
-  // {
-  //   id: 3,
-  //   label: "Shop",
-  //   link: "/shop",
-  // },
-  // {
-  //   id: 4,
-  //   label: "Gallery",
-  //   link: "/gallery",
-  // },
   {
-    id: 5,
+    id: 4,
     label: "Contact",
     link: "/contact",
   },
   {
-    id: 6,
+    id: 5,
     label: "FAQ",
     link: "/faq",
   },

@@ -4,7 +4,6 @@ import InfoCard from "../Contactus/InfoCard";
 import { contactInfoData } from "@/data/contactInfoData";
 import { Minus, Plus } from "react-feather";
 import Image from "next/image";
-import ServeIcon from "@/helpers/ui/customSvg/ServeIcon";
 import { faqItems } from "@/data/faqItems";
 import CommonHeader from "../common/CommonHeader";
 import CommonTitle from "@/helpers/ui/CommonTitle";

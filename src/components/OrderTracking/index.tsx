@@ -1,11 +1,8 @@
 "use client";
-import { memo, useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { size } from "lodash";
+import { memo, useMemo } from "react";
 import { Truck, Package, CheckCircle } from "react-feather";
-import { useRouter } from "next/navigation";
 import CommonHeader from "../common/CommonHeader";
-import { getOrdersData } from "@/helpers/restApiRequest";
-import { useAppSelector } from "@/redux/hooks/hooks";
+import { orderInfo } from "@/data/productsData";
 
 const steps = [
   {
@@ -64,46 +61,7 @@ const getOrderStatusForIcon = (currentStatus, stepName) => {
 };
 
 const OrderTrackingComponent = () => {
-  const router = useRouter();
-
-  // redux states
-  const { user } = useAppSelector((state) => state.user);
-  const [orderInfo, setOrderInfo] = useState([]);
-
-  const orderId = useMemo(
-    () => orderInfo?.map((item) => item?.id),
-    [orderInfo]
-  );
-
-  const getOrderInfo = async () => {
-    try {
-      const response = await getOrdersData();
-      if (size(response)) {
-        setOrderInfo(response?.data?.orders);
-      }
-    } catch (error) {
-      console.log("error:", error);
-    }
-  };
-
-  // Clear the timeout when the component unmounts
-  useEffect(() => {
-    getOrderInfo();
-    const intervalId = setInterval(() => {
-      getOrderInfo();
-    }, 5000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
-  useLayoutEffect(() => {
-    if (size(user) < 0) {
-      router.push("/");
-      router.prefetch("/");
-    }
-  }, [user, router]);
+  const orderId = useMemo(() => orderInfo?.map((item) => item?.id), []);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -113,13 +71,13 @@ const OrderTrackingComponent = () => {
         subtitle={`#${orderId}`}
         componentTitle="Tracking"
       />
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
-        <div className="rounded-lg bg-white shadow">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="rounded-lg">
           {orderInfo?.map((order) => {
             const { id, delivery_address, status, order_items, total_amount } =
               order || {};
             return (
-              <div className="px-4 py-5 sm:p-6" key={id}>
+              <div className="px-4 py-5 sm:p-6 mb-6 bg-white shadow" key={id}>
                 <h1 className="text-2xl font-semibold text-gray-900">
                   Order #{id}
                 </h1>
@@ -202,7 +160,7 @@ const OrderTrackingComponent = () => {
                     Delivery Address
                   </h2>
                   <p className="mt-2 text-sm text-gray-600">
-                    {user?.fullname}
+                    Abdullah Alshamsi
                     <br />
                     <span>{delivery_address}</span>
                   </p>

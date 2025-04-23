@@ -11,11 +11,11 @@ const ProductGallery = ({ images, foodImg }) => {
     <div className="space-y-4">
       <div className="relative">
         {/* Sale badge */}
-        <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 text-sm font-semibold rounded">
+        <div className="absolute top-4 left-4 bg-brand text-white px-3 py-1 text-sm font-semibold rounded">
           Sale!
         </div>
         {/* Main image */}
-        <div className="rounded-full border-2 border-dashed border-red-200 p-2 inline-block">
+        <div className="rounded-full border-2 border-dashed border-[#28ade2ad] p-2 inline-block">
           <div className="rounded-full overflow-hidden w-[200px] h-[200px] md:w-[400px] md:h-[400px]">
             <Image
               src={foodImg || selectedImage || alterCardImage}
@@ -35,7 +35,9 @@ const ProductGallery = ({ images, foodImg }) => {
             key={index}
             onClick={() => setSelectedImage(image)}
             className={`rounded-full cursor-pointer overflow-hidden w-[100px] h-[60px] md:w-20 md:h-20 border-2 ${
-              selectedImage === image ? "border-red-500" : "border-transparent"
+              selectedImage === image
+                ? "border-[#28ace2]"
+                : "border-transparent"
             }`}
           >
             <Image
