@@ -5,6 +5,7 @@ export const productsData = [
     subtitle: "INTERMEC",
     price: 2500,
     status: "newest",
+    brand: "Sony",
     currency: "AED",
     features: [
       "AMD Ryzen 5 5500U",
@@ -19,6 +20,7 @@ export const productsData = [
     id: 2,
     title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
     subtitle: "INTERMEC",
+    brand: "Apple",
     price: 1500,
     status: "popular",
     currency: "AED",
@@ -36,6 +38,7 @@ export const productsData = [
     title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
     price: 1500,
     subtitle: "INTERMEC",
+    brand: "Samsung",
     status: "popular",
     currency: "AED",
     features: [
@@ -53,6 +56,7 @@ export const productsData = [
     price: 2200,
     subtitle: "INTERMEC",
     currency: "AED",
+    brand: "Apple",
     status: "newest",
     features: [
       "AMD Ryzen 5 5500U",
@@ -68,6 +72,7 @@ export const productsData = [
     title: 'Lenovo IdeaPad Flex 5 14ALC7 AMD Ryzen 5 5500U 14" Touchscreen.',
     price: 4500,
     subtitle: "INTERMEC",
+    brand: "Sony",
     features: [
       "AMD Ryzen 5 5500U",
       '14" FHD Touchscreen',
@@ -84,6 +89,7 @@ export const productsData = [
     price: 2150,
     currency: "AED",
     subtitle: "INTERMEC",
+    brand: "Samsung",
     status: "popular",
     features: [
       "AMD Ryzen 5 5500U",
@@ -100,6 +106,7 @@ export const productsData = [
     price: 2250,
     subtitle: "INTERMEC",
     currency: "AED",
+    brand: "JBL",
     status: "popular",
     features: [
       "AMD Ryzen 5 5500U",
@@ -116,6 +123,7 @@ export const productsData = [
     price: 200,
     currency: "AED",
     subtitle: "INTERMEC",
+    brand: "Anker",
     status: "popular",
     features: [
       "AMD Ryzen 5 5500U",
@@ -132,6 +140,7 @@ export const productsData = [
     price: 200,
     currency: "AED",
     subtitle: "INTERMEC",
+    brand: "Fitbit",
     status: "popular",
     features: [
       "AMD Ryzen 5 5500U",
@@ -148,6 +157,7 @@ export const productsData = [
     price: 200,
     currency: "AED",
     subtitle: "INTERMEC",
+    brand: "Samsung",
     status: "newest",
     features: [
       "AMD Ryzen 5 5500U",

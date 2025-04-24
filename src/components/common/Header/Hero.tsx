@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowDown } from "react-feather";
+import { ArrowDown, PhoneCall } from "react-feather";
 import AppButton from "@/helpers/ui/AppButton";
+import Link from "next/link";
 
 const backgroundImages = [
   "https://www.adcb.com/en/Images/50_102_155_POSMachines_2470x1190_tcm41-169746.png",
@@ -13,13 +14,13 @@ const backgroundImages = [
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // const handleScroll = () => {
-  //   console.log("object");
-  //   const section = document.getElementById("abayas");
-  //   if (section) {
-  //     section.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
+  const handleScroll = () => {
+    console.log("object");
+    const section = document.getElementById("abayas");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,15 +69,28 @@ const Hero = () => {
         <p className="text-xl mb-8" data-aos="fade-up">
           Our new collections
         </p>
-        {/* <div role="button" tabIndex={0} onClick={() => handleScroll()}> */}
-        <AppButton
-          title="BROWSE PRODUCTS"
-          link="/products"
-          showIcon
-          btnIcon={ArrowDown}
-          iconClsname="animate-float-item-one"
-        />
-        {/* </div> */}
+        <div role="button" tabIndex={0} onClick={() => handleScroll()}>
+          <AppButton
+            title="BROWSE PRODUCTS"
+            link="/products"
+            showIcon
+            btnIcon={ArrowDown}
+            iconClsname="animate-float-item-one"
+          />
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 flex items-start justify-start gap-4 p-4">
+        <div className="flex flex-col items-start justify-start gap-2">
+          <PhoneCall className="w-10 h-10 text-white font-medium" />
+          <Link
+            href="tel:+971562015468"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand font-bold text-[1.2rem] tracking-wider"
+          >
+            971562015468
+          </Link>
+        </div>
       </div>
     </div>
   );

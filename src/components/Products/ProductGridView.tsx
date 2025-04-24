@@ -42,12 +42,9 @@ export default function ProductGridView({
         >
           <h3 className="text-sm font-medium mb-2">{product.title}</h3>
           <div className="mt-auto mx-auto">
-            <Link
-              href="/"
-              className="block mb-2 text-[1.2rem] font-semibold text-brand hover:text-blue-500"
-            >
+            <p className="block mb-2 text-[1.2rem] font-semibold text-brand hover:text-blue-500">
               Start form {product.currency} {product.price}
-            </Link>
+            </p>
           </div>
         </div>
       </Link>

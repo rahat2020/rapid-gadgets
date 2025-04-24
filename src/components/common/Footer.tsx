@@ -14,9 +14,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-brand-secondary text-white relative">
+    <footer className="bg-brand-secondary text-white relative ">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
+      <div className="w-full mx-auto container px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo & Description */}
           <div>
@@ -110,7 +110,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="w-full container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
               <p className="text-gray-400 text-sm">

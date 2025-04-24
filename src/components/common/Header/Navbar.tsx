@@ -18,7 +18,6 @@ import { navData } from "@/data/navData";
 import { useAppDispatch } from "@/redux/hooks/hooks";
 import HighLightMatchText from "./HighLightMatchText";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import AppButton from "@/helpers/ui/AppButton";
 
 const Navbar = ({ from = "" }) => {
   const pathname = usePathname();
@@ -283,22 +282,22 @@ const Navbar = ({ from = "" }) => {
               )}
             </form>
           </div>
-          <div
-            className="relative flex flex-col items-center"
-            role="button"
-            tabIndex={0}
-          >
-            <span className="absolute flex items-center justify-center -mt-5 ms-6 w-5 h-5 text-12 bg-white text-brand rounded-full ">
-              0
-            </span>
-            <ShoppingCart className="w-5 h-5 text-white cursor-pointer" />
-          </div>
+          <Link href="/cart">
+            <div
+              className="relative flex flex-col items-center"
+              role="button"
+              tabIndex={0}
+            >
+              <span className="absolute flex items-center justify-center -mt-5 ms-6 w-5 h-5 text-12 bg-white text-brand rounded-full ">
+                0
+              </span>
+              <ShoppingCart className="w-5 h-5 text-white cursor-pointer" />
+            </div>
+          </Link>
           <User
             onClick={() => handleAuthRedirect()}
             className="w-5 h-5 text-white cursor-pointer"
           />
-
-          <AppButton title="VISIT SHOP" link="/products" />
         </div>
 
         {/* nav links for mobile */}

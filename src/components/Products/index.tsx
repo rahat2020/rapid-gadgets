@@ -65,7 +65,7 @@ export default function AllProducts() {
                   />
                 </div>
 
-                <div className="flex justify-center items-center gap-2">
+                <div className="flex flex-col md:flex-row items-start justify-start md:justify-center md:items-center gap-2">
                   <div className="flex justify-center items-center gap-2 mr-4">
                     <p className="text-base font-semibold text-gray-600">
                       Sort by
@@ -84,7 +84,7 @@ export default function AllProducts() {
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center gap-2">
+                  <div className="flex flex-row justify-between items-center gap-2">
                     <p className="text-base font-semibold text-gray-600">
                       View as
                     </p>

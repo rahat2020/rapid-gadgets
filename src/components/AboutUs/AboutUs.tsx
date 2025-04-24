@@ -31,7 +31,7 @@ const AboutUs = () => {
           <div className="mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row gap-8 md:gap-16">
             {/* Left Column - Text Content */}
             <div className="w-full md:w-1/2 flex flex-col justify-center">
-              <span className="text-white text-sm mb-4 py-1 rounded-md bg-brand w-[30%] text-center uppercase font-medium">
+              <span className="text-white text-sm mb-4 py-1 rounded-md bg-brand w-full md:w-[30%] text-center uppercase font-medium">
                 Some words about us
               </span>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">

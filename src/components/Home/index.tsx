@@ -8,16 +8,20 @@ import NewArrival from "./NewArrival";
 import MostPopular from "./MostPopular";
 import Recommended from "./Recommended";
 import ClientReview from "./ClientReview";
+import BrandNProducts from "./BrandNProducts/BrandNProducts";
+import Offer from "./Offer";
 
 const HomeComponent = () => {
   return (
     <div>
       <Header />
-      <Processing />
       <ProductCategories />
       <NewArrival />
       <MostPopular />
       <Recommended />
+      <BrandNProducts />
+      <Processing />
+      <Offer />
       <ClientReview />
       <NewsletterSignup />
     </div>

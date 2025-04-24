@@ -110,11 +110,11 @@ const ProductCard = ({
         </Link>
 
         <Link href={`/product/${product.id}`}>
-          <div className="flex group-hover:shadow-lg rounded-md pb-2 flex-col items-center text-center">
-            <h3 className="text-base font-semibold text-gray-800 mb-1">
+          <div className="flex group-hover:shadow-lg rounded-md pb-2 px-2 flex-col items-center text-start">
+            <h3 className="text-base font-medium text-gray-800 mb-1">
               {product.title}
             </h3>
-            <p className="text-base font-semibold text-gray-700 mb-1">
+            <p className="text-base font-medium text-gray-700 mb-1">
               {product.subtitle}
             </p>
             <p className="flex items-center mb-1">
@@ -124,7 +124,7 @@ const ProductCard = ({
               <Star className="w-4 h-4 text-yellow-400 inline-block" />
               <Star className="w-4 h-4 text-yellow-400 inline-block" />
             </p>
-            <p className="text-base font-semibold text-gray-900">
+            <p className="text-base font-medium text-gray-900">
               AED {product.price}
             </p>
           </div>

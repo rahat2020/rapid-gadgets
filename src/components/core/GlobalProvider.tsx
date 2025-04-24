@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import StoreProvider from "@/redux/StoreProvider";
 import Navbar from "../common/Header/Navbar";
+import TopBarTwo from "../common/Header/TopBarTwo";
 
 interface GlobalProviderProps {
   children: ReactNode;
@@ -16,7 +17,7 @@ const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     <StoreProvider>
       {showTopbar && (
         <>
-          {/* <TopBarTwo /> */}
+          <TopBarTwo />
           <Navbar from="globalProvider" />
         </>
       )}
